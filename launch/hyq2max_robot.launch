@@ -1,0 +1,23 @@
+<launch>
+
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+    	<arg name="verbose" value="true"/>
+    	<arg name="world_name" value="$(find hyq2max_description)/worlds/hyq2max_empty.world"/>
+    <!-- more default parameters can be changed here -->
+ 	</include>
+
+	<!-- Load the sensors that measured the internal wrench in the joints -->
+	<arg name="internal_wrench" default="true"/>
+
+  	<!-- Convert an xacro and put on parameter server -->
+	<param name="robot_description" command="$(find xacro)/xacro.py '$(find hyq2max_description)/robots/hyq2max_model.urdf.xacro' load_force_sensors:=$(arg internal_wrench)" />
+
+	<!-- Spawn a robot into Gazebo -->
+	<!-- <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model hyq_br" /> -->
+
+	<!-- Spawn a robot into Gazebo -->
+	<node name="spawn_hyq_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model hyq2max -z 0.8"/>
+
+	<!--node name="goto0" pkg="hyq2max_description" type="go0" args="1.0" /-->
+
+</launch>
