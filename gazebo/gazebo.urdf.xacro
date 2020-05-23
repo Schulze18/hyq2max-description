@@ -21,6 +21,7 @@
 			<gaussianNoise>0</gaussianNoise>
 			<alwaysOn>true</alwaysOn>
 			<updateRate>250.0</updateRate>
+			<tf_prefix>tf</tf_prefix>
 		</plugin>
 	</gazebo>
 

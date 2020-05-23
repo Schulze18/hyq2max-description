@@ -127,7 +127,8 @@
 				</geometry>
 				<material name="white"/>
 			</visual>
-			<collision>
+			<!--collision-->
+			<collision name="${name}_lowerleg_collision">	
 				<origin xyz="0 0 0" rpy="${(1-reflect_front)*PI/2} 0 ${PI-reflect_front*knee_offset_angle*PI/180}"/>
 				<geometry>
 					<mesh filename="package://hyq2max_description/meshes/leg/lowerleg.dae" scale="1 1 1"/>
@@ -148,7 +149,8 @@
 				</geometry>
                                 <material name="black"/>
 			</visual>
-			<collision>
+			<!--collision-->
+			<collision name="${name}_foot_collision">			
 				<origin xyz="0 0 0" rpy="0 0 0"/>
 				<geometry>
 					<sphere radius="0.02175"/>
